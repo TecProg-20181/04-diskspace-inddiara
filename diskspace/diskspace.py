@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
+from contracts import contract
 
 import argparse
 import os
@@ -39,7 +40,7 @@ args = parser.parse_args()
 def subprocess_check_output(command):
     return subprocess.check_output(command.strip().split(' '))
 
-
+@contract(blocks='int,>0')
 def bytes_to_readable(blocks):
     byts = blocks * 512
     readable_bytes = byts
